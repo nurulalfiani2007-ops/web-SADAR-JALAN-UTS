@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web lalu lintas - Nurul Alfiani (250212094)</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- A. <header> -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <i class="bi bi-shield-check logo-icon"></i>
+                    <h1 class="m-0">SADAR JALAN</h1>
+                </div>
+                <p class="tagline mb-0">Berkendara Aman, Surat Lengkap, Hati Tenang</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- B. <nav> -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="toggler-text">Menu</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-page="beranda">
+                            <i class="bi bi-house-fill"></i> Beranda
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="cek-razia">
+                            <i class="bi bi-exclamation-triangle-fill"></i> Cek Razia
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="peta-live">
+                            <i class="bi bi-geo-alt-fill"></i> Peta Live
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="cek-sim">
+                            <i class="bi bi-credit-card-fill"></i> Cek SIM
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="panduan-hukum">
+                            <i class="bi bi-book-fill"></i> Panduan Hukum
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="laporan-razia">
+                            <i class="bi bi-megaphone-fill"></i> Laporan Razia
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="akun">
+                            <i class="bi bi-person-fill"></i> Akun
+                        </a>
+                    </li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn btn-nav-action" id="btn-nav-search">
+                        <i class="bi bi-search"></i>
+                        <span class="btn-text">Pencarian</span>
+                    </button>
+                    <button class="btn btn-nav-action btn-notif" id="btn-nav-notif">
+                        <i class="bi bi-bell-fill"></i>
+                        <span class="btn-text">Notifikasi</span>
+                        <span class="notif-badge">3</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- C. <main> -->
+    <main class="main-content">
+
+        <!-- ==================== HALAMAN BERANDA ==================== -->
+        <div id="page-beranda" class="page-section active">
+            
+            <!-- Hero Section -->
+            <section id="hero-banner" class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <span class="hero-badge">🚨 INFO TERKINI</span>
+                        <h2 class="hero-title">BERKENDARA AMAN<br>SURAT LENGKAP<br>HATI TENANG</h2>
+                        <div class="alert-custom alert-danger-custom">
+                            <i class="bi bi-exclamation-octagon-fill"></i>
+                            <div>
+                                <strong>STATUS OPERASI BESAR SEDANG BERLANGSUNG</strong>
+                                <p class="mb-0">OPERASI ZEBRA MABES POLRI 2026</p>
+                            </div>
+                        </div>
+                        <h3 class="hero-subtitle">BANNER: MONITORING LOKASI PEMERIKSAAN</h3>
+                        <p class="hero-desc">DAFTAR TITIK RAZIA & PEMERIKSAAN KENDARAAN AKTIF</p>
+                        <p class="hero-desc-small">Menampilkan lokasi yang sedang berlangsung...</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-hero btn-hero-primary" id="btn-jadwal-mingguan">
+                                <i class="bi bi-calendar-week"></i> Cek Jadwal Pusat
+                            </button>
+                            <button class="btn btn-hero btn-hero-secondary" id="btn-lapor-titik">
+                                <i class="bi bi-geo-alt"></i> Lapor Titik
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filter Wilayah -->
+            <section id="akses-wilayah" class="filter-section">
+                <div class="container">
+                    <div class="section-header">
+                        <i class="bi bi-funnel-fill"></i>
+                        <h3>Filter Wilayah</h3>
+                    </div>
+                    <div class="filter-buttons">
+                        <a href="#" class="filter-btn active" data-wilayah="jakarta">
+                            <i class="bi bi-geo-alt"></i> Seluruh Jakarta
+                        </a>
+                        <a href="#" class="filter-btn" data-wilayah="bandung">
+                            <i class="bi bi-geo-alt"></i> Seluruh Bandung
+                        </a>
+                        <a href="#" class="filter-btn" data-wilayah="surabaya">
+                            <i class="bi bi-geo-alt"></i> Seluruh Surabaya
+                        </a>
+                        <a href="#" class="filter-btn" data-wilayah="aceh">
+                            <i class="bi bi-geo-alt"></i> Seluruh Aceh
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Peta Interaktif -->
+            <section id="peta-interaktif" class="map-section">
+                <div class="container">
+                    <div class="section-header">
+                        <i class="bi bi-pin-map-fill"></i>
+                        <h2>KETERANGAN WARNA PIN</h2>
+                    </div>
+                    <div class="legend-container">
+                        <div id="pin-merah-info" class="legend-item legend-red">
+                            <span class="legend-dot dot-red"></span>
+                            <span>= Terdeteksi Razia Besar / Resmi Pusat</span>
+                        </div>
+                        <div id="pin-kuning-info" class="legend-item legend-yellow">
+                            <span class="legend-dot dot-yellow"></span>
+                            <span>= Laporan Patroli Bergerak / Warga sekitar</span>
+                        </div>
+                        <div id="pin-hijau-info" class="legend-item legend-green">
+                            <span class="legend-dot dot-green"></span>
+                            <span>= Kondisi Aman / Pemeriksaan Selesai</span>
+                        </div>
+                    </div>
+
+                    <div class="section-header mt-4">
+                        <i class="bi bi-map-fill"></i>
+                        <h2>PETA LIVE SITUASI LALU LINTAS</h2>
+                    </div>
+                    
+                    <!-- Ganti div maps-container dengan iframe Google Maps -->
+                    <div id="maps-container" style="border-radius: 15px; overflow: hidden; height: 450px;">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31890.123456789!2d95.32345678901234!3d5.548123456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3040378f20a1b123%3A0x456789abcdef!2sBanda%20Aceh%2C%20Aceh!5e0!3m2!1sid!2sid!4v1234567890123!5m2!1sid!2sid" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0; border-radius: 15px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <div class="location-bar">
+                        <ul class="location-info">
+                            <li><strong>Lokasi Saat Ini:</strong> Banda Aceh (Deteksi GPS Aktif)</li>
+                        </ul>
+                        <button class="btn btn-refresh" id="btn-refresh-maps">
+                            <i class="bi bi-arrow-clockwise"></i> REFRESH PETA
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Berita -->
+            <section id="news-feed" class="news-section">
+                <div class="container">
+                    <div class="section-header">
+                        <i class="bi bi-newspaper"></i>
+                        <h2>Ringkasan Berita Razia Terbaru</h2>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-12 col-md-3">
+                            <article class="news-card card-red">
+                                <div class="news-icon">
+                                    <i class="bi bi-exclamation-triangle-fill"></i>
+                                </div>
+                                <h3>Razia OPS Zebra Update Terbaru</h3>
+                                <p>Informasi terkini mengenai penindakan di wilayah pusat kota.</p>
+                                <button class="btn btn-read-more">Baca Selengkapnya <i class="bi bi-arrow-right"></i></button>
+                            </article>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <article class="news-card card-yellow">
+                                <div class="news-icon">
+                                    <i class="bi bi-people-fill"></i>
+                                </div>
+                                <h3>Laporan Warga Lokasi Darussalam</h3>
+                                <p>Warga melaporkan adanya pemeriksaan rutin di sekitar kampus.</p>
+                                <button class="btn btn-read-more">Baca Selengkapnya <i class="bi bi-arrow-right"></i></button>
+                            </article>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <article class="news-card card-green">
+                                <div class="news-icon">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </div>
+                                <h3>Penerbitan Helm Status Selesai</h3>
+                                <p>Proses administrasi helm sudah dapat diambil di kantor polisi.</p>
+                                <button class="btn btn-read-more">Baca Selengkapnya <i class="bi bi-arrow-right"></i></button>
+                            </article>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <article class="news-card card-blue">
+                                <div class="news-icon">
+                                    <i class="bi bi-info-circle-fill"></i>
+                                </div>
+                                <h3>Info Pos Cek Status Mendatang</h3>
+                                <p>Jadwal pembukaan pos pemeriksaan baru di jalur pantura.</p>
+                                <button class="btn btn-read-more">Baca Selengkapnya <i class="bi bi-arrow-right"></i></button>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pengingat Surat -->
+            <section id="pengingat-surat" class="reminder-section">
+                <div class="container">
+                    <div class="section-header">
+                        <i class="bi bi-bell-fill"></i>
+                        <h2>Pengingat Surat Kendaraan</h2>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <article class="reminder-card status-card">
+                                <div class="reminder-header">
+                                    <i class="bi bi-file-earmark-text-fill"></i>
+                                    <h3>Status Dokumen Anda</h3>
+                                </div>
+                                <ul class="status-list">
+                                    <li class="status-ok">
+                                        <i class="bi bi-check-circle-fill"></i>
+                                        <span>STNK Aktif</span>
+                                    </li>
+                                    <li class="status-warning">
+                                        <i class="bi bi-exclamation-triangle-fill"></i>
+                                        <span>SIM Masa Berlaku Hampir Habis</span>
+                                    </li>
+                                </ul>
+                                <button class="btn btn-action w-100">Perpanjang Sekarang</button>
+                            </article>
+                        </div>
+                        <div class="col-md-6">
+                            <article class="reminder-card tips-card">
+                                <div class="reminder-header">
+                                    <i class="bi bi-lightbulb-fill"></i>
+                                    <h3>Tips Keamanan Berkendara</h3>
+                                </div>
+                                <p>Selalu pastikan kelengkapan surat berkendara sebelum memulai perjalanan. Gunakan helm SNI dan patuhi rambu lalu lintas untuk keselamatan bersama.</p>
+                                <button class="btn btn-action w-100">Lihat Riwayat Tilang</button>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN CEK RAZIA ==================== -->
+        <div id="page-cek-razia" class="page-section">
+            <section class="content-section">
+                <div class="container">
+                    <div class="page-header-custom">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        <h2>Cek Razia Terkini</h2>
+                        <p>Informasi real-time tentang operasi razia yang sedang berlangsung</p>
+                    </div>
+
+                    <div class="razia-status-banner">
+                        <div class="status-indicator pulse-red"></div>
+                        <div>
+                            <h4>OPERASI ZEBRA 2026 SEDANG BERLANGSUNG</h4>
+                            <p>Mabes Polri • Periode: 1 - 14 Juni 2026</p>
+                        </div>
+                    </div>
+
+                    <div class="row g-4 mt-3">
+                        <div class="col-md-4">
+                            <div class="stat-card stat-danger">
+                                <i class="bi bi-exclamation-octagon-fill"></i>
+                                <h3>12</h3>
+                                <p>Titik Razia Aktif</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card stat-warning">
+                                <i class="bi bi-car-front-fill"></i>
+                                <h3>156</h3>
+                                <p>Kendaraan Diperiksa</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-card stat-success">
+                                <i class="bi bi-shield-check"></i>
+                                <h3>89%</h3>
+                                <p>Dokumen Lengkap</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="razia-list mt-4">
+                        <h3 class="mb-3">Daftar Lokasi Razia Hari Ini</h3>
+                        <div class="razia-item">
+                            <div class="razia-dot dot-red"></div>
+                            <div class="razia-info">
+                                <h5>Jl. Sultan Iskandar Muda - Banda Aceh</h5>
+                                <p><i class="bi bi-clock"></i> 08:00 - 12:00 WIB | <i class="bi bi-people"></i> 8 Petugas</p>
+                            </div>
+                            <span class="badge-razia badge-danger">RAZIA BESAR</span>
+                        </div>
+                        <div class="razia-item">
+                            <div class="razia-dot dot-yellow"></div>
+                            <div class="razia-info">
+                                <h5>Jl. Teuku Umar - Banda Aceh</h5>
+                                <p><i class="bi bi-clock"></i> 10:00 - 14:00 WIB | <i class="bi bi-people"></i> 4 Petugas</p>
+                            </div>
+                            <span class="badge-razia badge-warning">PATROLI</span>
+                        </div>
+                        <div class="razia-item">
+                            <div class="razia-dot dot-green"></div>
+                            <div class="razia-info">
+                                <h5>Jl. Mohammad Jam - Banda Aceh</h5>
+                                <p><i class="bi bi-clock"></i> Selesai | <i class="bi bi-check-circle"></i> Aman</p>
+                            </div>
+                            <span class="badge-razia badge-success">SELESAI</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN PETA LIVE ==================== -->
+        <div id="page-peta-live" class="page-section">
+            <section class="content-section">
+                <div class="container">
+                    <div class="page-header-custom">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <h2>Peta Live Situasi Lalu Lintas</h2>
+                        <p>Monitoring lokasi pemeriksaan kendaraan secara real-time</p>
+                    </div>
+
+                  <!-- Ganti div maps-container dengan iframe Google Maps -->
+                        <div id="maps-container" style="border-radius: 15px; overflow: hidden; height: 450px;">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31890.123456789!2d95.32345678901234!3d5.548123456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3040378f20a1b123%3A0x456789abcdef!2sBanda%20Aceh%2C%20Aceh!5e0!3m2!1sid!2sid!4v1234567890123!5m2!1sid!2sid" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0; border-radius: 15px;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                                <div class="legend-item-full legend-red-full">
+                                    <span class="dot-full dot-red-full"></span> Razia Besar
+                                </div>
+                                <div class="legend-item-full legend-yellow-full">
+                                    <span class="dot-full dot-yellow-full"></span> Patroli
+                                </div>
+                                <div class="legend-item-full legend-green-full">
+                                    <span class="dot-full dot-green-full"></span> Aman
+                                </div>
+                         <div class="row g-3 mt-4">
+                            <div class="col-md-6">
+                            <div class="info-card">
+                                <h4><i class="bi bi-geo-alt-fill text-danger"></i> Lokasi Terdeteksi</h4>
+                                <p>Banda Aceh, Aceh</p>
+                                <small>GPS Aktif • Update terakhir: 2 menit lalu</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h4><i class="bi bi-shield-fill text-success"></i> Status Keamanan</h4>
+                                <p>3 Titik Aman di Sekitar Anda</p>
+                                <small>Rata-rata jarak: 2.5 km</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN CEK SIM ==================== -->
+        <div id="page-cek-sim" class="page-section">
+            <section class="content-section">
+                <div class="container">
+                    <div class="page-header-custom">
+                        <i class="bi bi-credit-card-fill"></i>
+                        <h2>Cek Status SIM</h2>
+                        <p>Verifikasi dan perpanjang SIM Anda dengan mudah</p>
+                    </div>
+
+                    <div class="sim-check-container">
+                        <div class="sim-form-card">
+                            <h3><i class="bi bi-search"></i> Cek Nomor SIM</h3>
+                            <div class="form-group-custom">
+                                <label for="input-nomor-sim">Nomor SIM</label>
+                                <input type="text" id="input-nomor-sim" class="form-control-custom" placeholder="Masukkan nomor SIM Anda">
+                            </div>
+                            <button class="btn btn-check-sim" id="btn-cek-sim">
+                                <i class="bi bi-search"></i> Cek Status
+                            </button>
+                        </div>
+
+                        <div id="sim-result" class="sim-result-card" style="display: none;">
+                            <div class="sim-result-header sim-valid">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <h4>SIM VALID</h4>
+                            </div>
+                            <div class="sim-result-body">
+                                <div class="sim-info-row">
+                                    <span>Nomor SIM:</span>
+                                    <strong>12345678901234</strong>
+                                </div>
+                                <div class="sim-info-row">
+                                    <span>Nama:</span>
+                                    <strong>Nurul Alfiani</strong>
+                                </div>
+                                <div class="sim-info-row">
+                                    <span>Gol. Darah:</span>
+                                    <strong>O</strong>
+                                </div>
+                                <div class="sim-info-row">
+                                    <span>Berlaku Hingga:</span>
+                                    <strong class="text-warning">21 Juni 2026</strong>
+                                </div>
+                                <div class="sim-info-row">
+                                    <span>Status:</span>
+                                    <strong class="text-danger">Hampir Habis (14 hari lagi)</strong>
+                                </div>
+                            </div>
+                            <button class="btn btn-perpanjang">Perpanjang Sekarang</button>
+                        </div>
+                    </div>
+
+                    <div class="row g-4 mt-4">
+                        <div class="col-md-4">
+                            <div class="info-card info-card-blue">
+                                <i class="bi bi-clock-history"></i>
+                                <h4>Riwayat Perpanjangan</h4>
+                                <p>Lihat history perpanjangan SIM Anda</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-card info-card-green">
+                                <i class="bi bi-file-earmark-text"></i>
+                                <h4>Syarat Perpanjangan</h4>
+                                <p>Dokumen yang diperlukan untuk perpanjang SIM</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="info-card info-card-orange">
+                                <i class="bi bi-geo-alt"></i>
+                                <h4>Lokasi Samsat</h4>
+                                <p>Temukan kantor Samsat terdekat</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN PANDUAN HUKUM ==================== -->
+        <div id="page-panduan-hukum" class="page-section">
+            <section class="content-section">
+                <div class="container">
+                    <div class="page-header-custom">
+                        <i class="bi bi-book-fill"></i>
+                        <h2>Panduan Hukum Lalu Lintas</h2>
+                        <p>Informasi lengkap tentang peraturan dan sanksi pelanggaran</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <article class="guide-card">
+                                <div class="guide-icon guide-icon-red">
+                                    <i class="bi bi-exclamation-triangle-fill"></i>
+                                </div>
+                                <h3>Tidak Memiliki SIM</h3>
+                                <p class="guide-desc">Sanksi sesuai UU No. 22 Tahun 2009:</p>
+                                <ul class="guide-list">
+                                    <li>Penjara maksimal 4 bulan</li>
+                                    <li>Denda maksimal Rp 1.000.000</li>
+                                    <li>Kendaraan dapat ditahan</li>
+                                </ul>
+                                <span class="guide-badge badge-danger">Pelanggaran Berat</span>
+                            </article>
+                        </div>
+                        <div class="col-md-6">
+                            <article class="guide-card">
+                                <div class="guide-icon guide-icon-orange">
+                                    <i class="bi bi-car-front-fill"></i>
+                                </div>
+                                <h3>Tidak Memiliki STNK</h3>
+                                <p class="guide-desc">Sanksi sesuai UU No. 22 Tahun 2009:</p>
+                                <ul class="guide-list">
+                                    <li>Penjara maksimal 2 bulan</li>
+                                    <li>Denda maksimal Rp 500.000</li>
+                                    <li>Kendaraan dapat ditahan</li>
+                                </ul>
+                                <span class="guide-badge badge-warning">Pelanggaran Sedang</span>
+                            </article>
+                        </div>
+                        <div class="col-md-6">
+                            <article class="guide-card">
+                                <div class="guide-icon guide-icon-yellow">
+                                    <i class="bi bi-shield-fill-x"></i>
+                                </div>
+                                <h3>Tidak Menggunakan Helm</h3>
+                                <p class="guide-desc">Sanksi sesuai UU No. 22 Tahun 2009:</p>
+                                <ul class="guide-list">
+                                    <li>Penjara maksimal 1 bulan</li>
+                                    <li>Denda maksimal Rp 250.000</li>
+                                    <li>Tilang di tempat</li>
+                                </ul>
+                                <span class="guide-badge badge-warning">Pelanggaran Sedang</span>
+                            </article>
+                        </div>
+                        <div class="col-md-6">
+                            <article class="guide-card">
+                                <div class="guide-icon guide-icon-green">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </div>
+                                <h3>Hak Pengendara Saat Razia</h3>
+                                <p class="guide-desc">Yang perlu Anda ketahui:</p>
+                                <ul class="guide-list">
+                                    <li>Berhak meminta surat tugas petugas</li>
+                                    <li>Berhak mengetahui alasan penindakan</li>
+                                    <li>Berhak menolak pungli</li>
+                                </ul>
+                                <span class="guide-badge badge-success">Informasi Penting</span>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="legal-reference mt-4">
+                        <h3><i class="bi bi-journal-text"></i> Dasar Hukum</h3>
+                        <div class="reference-list">
+                            <div class="reference-item">
+                                <i class="bi bi-file-earmark-text-fill"></i>
+                                <div>
+                                    <strong>UU No. 22 Tahun 2009</strong>
+                                    <p>Tentang Lalu Lintas dan Angkutan Jalan</p>
+                                </div>
+                            </div>
+                            <div class="reference-item">
+                                <i class="bi bi-file-earmark-text-fill"></i>
+                                <div>
+                                    <strong>Perkap No. 5 Tahun 2024</strong>
+                                    <p>Tentang Prosedur Penindakan Pelanggaran Lalu Lintas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN LAPORAN RAZIA ==================== -->
+        <div id="page-laporan-razia" class="page-section">
+            <section class="content-section">
+                <div class="container">
+                    <div class="page-header-custom">
+                        <i class="bi bi-megaphone-fill"></i>
+                        <h2>Laporan Razia Masyarakat</h2>
+                        <p>Laporkan dan validasi informasi razia dari warga</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-5">
+                            <div class="report-form-card">
+                                <h3><i class="bi bi-plus-circle-fill"></i> Lapor Pemeriksaan Baru</h3>
+                                <div class="form-group-custom">
+                                    <label>Lokasi</label>
+                                    <input type="text" id="input-lokasi" class="form-control-custom" placeholder="Nama jalan / lokasi">
+                                </div>
+                                <div class="form-group-custom">
+                                    <label>Jenis Razia</label>
+                                    <select id="input-jenis-razia" class="form-control-custom">
+                                        <option>Razia Helm</option>
+                                        <option>Razia SIM/STNK</option>
+                                        <option>Razia Narkoba</option>
+                                        <option>Razia Umum</option>
+                                    </select>
+                                </div>
+                                <div class="form-group-custom">
+                                    <label>Keterangan</label>
+                                    <textarea id="input-keterangan" class="form-control-custom" rows="3" placeholder="Deskripsi tambahan..."></textarea>
+                                </div>
+                                <button class="btn btn-submit-report w-100">
+                                    <i class="bi bi-send-fill"></i> Kirim Laporan
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h3 class="mb-3">Validasi Laporan Warga</h3>
+                            <div class="report-list">
+                               
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==================== HALAMAN AKUN ==================== -->
+        <div id="page-akun" class="page-section">
+            <section class="content-section">
+                <div class="container">
+                    <div class="page-header-custom">
+                        <i class="bi bi-person-fill"></i>
+                        <h2>Akun Saya</h2>
+                        <p>Kelola profil dan dokumen kendaraan Anda</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="profile-card">
+                                <div class="profile-avatar">
+                                    <i class="bi bi-person-fill"></i>
+                                </div>
+                                <h3>Nurul Alfiani</h3>
+                                <p class="profile-nim">NIM: 250212094</p>
+                                <p class="profile-email">nurul.alfiani@ar-raniry.ac.id</p>
+                                <button class="btn btn-edit-profile w-100">
+                                    <i class="bi bi-pencil-fill"></i> Edit Profil
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="account-info-card">
+                                <h3><i class="bi bi-motorcycle"></i> Data Kendaraan</h3>
+                                <div class="vehicle-list">
+                                    <div class="vehicle-item">
+                                        <div class="vehicle-icon">
+                                            <i class="bi bi-motorcycle-fill"></i>
+                                        </div>
+                                        <div class="vehicle-info">
+                                            <h5>Honda Vario 160</h5>
+                                            <p>DK 1234 ABC • 2024</p>
+                                        </div>
+                                        <span class="vehicle-status status-active">Aktif</span>
+                                    </div>
+                                </div>
+
+                                <h3 class="mt-4"><i class="bi bi-credit-card"></i> Data SIM</h3>
+                                <div class="sim-status-card sim-warning">
+                                    <div class="sim-status-icon">
+                                        <i class="bi bi-exclamation-triangle-fill"></i>
+                                    </div>
+                                    <div class="sim-status-info">
+                                        <h5>SIM C - Berlaku Hingga 21 Juni 2026</h5>
+                                        <p class="text-danger fw-bold">⚠️ Habis dalam 14 hari! Segera perpanjang.</p>
+                                    </div>
+                                </div>
+
+                                <div class="account-actions">
+                                    <button class="btn btn-account-action">
+                                        <i class="bi bi-clock-history"></i> Riwayat Tilang
+                                    </button>
+                                    <button class="btn btn-account-action">
+                                        <i class="bi bi-gear-fill"></i> Pengaturan
+                                    </button>
+                                    <button class="btn btn-account-action btn-logout">
+                                        <i class="bi bi-box-arrow-right"></i> Logout
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- D. <footer> -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Tentang Kami</a>
+                    <span class="footer-divider">|</span>
+                    <a href="#" class="footer-link">Kontak Darurat</a>
+                    <span class="footer-divider">|</span>
+                    <a href="#" class="footer-link footer-link-danger">Lapor Pungli</a>
+                </div>
+                <p class="footer-copyright">© 2026 SadarJalan. Universitas Islam Negeri Ar-Raniry Banda Aceh.</p>
+                <p class="footer-credit">Dibuat oleh: Nurul Alfiani (250212094) • Prodi Pendidikan Teknologi Informasi</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
